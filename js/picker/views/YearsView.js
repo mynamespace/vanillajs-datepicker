@@ -18,7 +18,7 @@ export default class YearsView extends View {
       this.navStep = this.step * 10;
       this.beforeShowOption = `beforeShow${toTitleCase(this.cellClass)}`;
       this.grid = this.element;
-      this.element.classList.add(this.name, 'datepicker-grid');
+      this.element.classList.add(this.name, 'datepicker-grid', 'w-64', 'grid', 'grid-cols-4');
       this.grid.appendChild(parseHTML(createTagRepeat('span', 12)));
     }
     super.init(options);
@@ -97,7 +97,7 @@ export default class YearsView extends View {
       const current = this.start + (index * this.step);
       const date = dateValue(current, 0, 1);
 
-      el.className = `datepicker-cell ${this.cellClass}`;
+      el.className = `datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-gray-900 dark:text-white font-semibold text-sm ${this.cellClass}`;
       if (this.isMinView) {
         el.dataset.date = date;
       }
@@ -124,7 +124,8 @@ export default class YearsView extends View {
         }
       }
       if (this.selected.includes(current)) {
-        classList.add('selected');
+        classList.add('selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white');
+        classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (current === this.focused) {
         classList.add('focused');
@@ -142,7 +143,7 @@ export default class YearsView extends View {
     this.grid
       .querySelectorAll('.range, .range-start, .range-end, .selected, .focused')
       .forEach((el) => {
-        el.classList.remove('range', 'range-start', 'range-end', 'selected', 'focused');
+        el.classList.remove('range', 'range-start', 'range-end', 'selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white', 'focused');
       });
     Array.from(this.grid.children).forEach((el) => {
       const current = Number(el.textContent);
@@ -157,7 +158,8 @@ export default class YearsView extends View {
         classList.add('range-end');
       }
       if (this.selected.includes(current)) {
-        classList.add('selected');
+        classList.add('selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white');
+        classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (current === this.focused) {
         classList.add('focused');

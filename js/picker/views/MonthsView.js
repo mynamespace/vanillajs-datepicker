@@ -30,7 +30,7 @@ export default class MonthsView extends View {
   init(options, onConstruction = true) {
     if (onConstruction) {
       this.grid = this.element;
-      this.element.classList.add('months', 'datepicker-grid');
+      this.element.classList.add('months', 'datepicker-grid', 'w-64', 'grid', 'grid-cols-4');
       this.grid.appendChild(parseHTML(createTagRepeat('span', 12, {'data-month': ix => ix})));
     }
     super.init(options);
@@ -159,7 +159,8 @@ export default class MonthsView extends View {
         }
       }
       if (selected.includes(index)) {
-        classList.add('selected');
+        classList.add('selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white');
+        classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (index === this.focused) {
         classList.add('focused');
@@ -178,7 +179,8 @@ export default class MonthsView extends View {
     this.grid
       .querySelectorAll('.range, .range-start, .range-end, .selected, .focused')
       .forEach((el) => {
-        el.classList.remove('range', 'range-start', 'range-end', 'selected', 'focused');
+        el.classList.remove('range', 'range-start', 'range-end', 'selected', 'bg-blue-700', 'dark:bg-blue-600', 'dark:text-white', 'text-white', 'focused');
+        el.classList.add('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       });
     Array.from(this.grid.children).forEach((el, index) => {
       const classList = el.classList;
@@ -192,7 +194,8 @@ export default class MonthsView extends View {
         classList.add('range-end');
       }
       if (selected.includes(index)) {
-        classList.add('selected');
+        classList.add('selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white');
+        classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (index === this.focused) {
         classList.add('focused');
