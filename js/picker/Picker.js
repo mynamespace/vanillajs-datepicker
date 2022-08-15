@@ -218,6 +218,7 @@ export default class Picker {
 
       element.style.visibility = 'hidden';
       element.classList.add('active', 'block');
+      element.classList.remove('hidden');
       this.place();
       element.style.visibility = 'visible';
 

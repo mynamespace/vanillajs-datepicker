@@ -170,17 +170,21 @@ export default class DaysView extends View {
 
       if (current < this.first) {
         classList.add('prev', 'text-gray-500', 'dark:text-white');
+        classList.remove('text-gray-900');
       } else if (current > this.last) {
         classList.add('next', 'text-gray-500', 'dark:text-white');
+        classList.remove('text-gray-900');
       }
       if (this.today === current) {
         classList.add('today', 'bg-gray-100', 'dark:bg-gray-600');
       }
       if (current < this.minDate || current > this.maxDate || this.disabled.includes(current)) {
-        classList.add('disabled', 'cursor-not-allowed');
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-300');
+        classList.remove('text-gray-900', 'hover:bg-gray-100');
       }
       if (this.daysOfWeekDisabled.includes(day)) {
-        classList.add('disabled', 'cursor-not-allowed');
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-300');
+        classList.remove('text-gray-900', 'hover:bg-gray-100');
         pushUnique(this.disabled, current);
       }
       if (this.daysOfWeekHighlighted.includes(day)) {
