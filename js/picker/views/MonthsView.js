@@ -164,7 +164,9 @@ export default class MonthsView extends View {
         classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (index === this.focused) {
-        classList.add('focused', 'border-dotted');
+        classList.add('focused', 'border-1', 'border-blue-600', 'border-dotted');
+        classList.add('selected', 'bg-blue-700', 'text-white', 'dark:bg-blue-600', 'dark:text-white');
+        classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
 
       if (this.beforeShow) {
