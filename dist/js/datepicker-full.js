@@ -1835,10 +1835,10 @@
           element.removeAttribute('dir');
         }
 
-        element.style.visiblity = 'hidden';
+        element.style.visibility = 'hidden';
         element.classList.add('active');
         this.place();
-        element.style.visiblity = '';
+        element.style.visibility = '';
 
         if (datepicker.config.disableTouchKeyboard) {
           datepicker.inputField.blur();
