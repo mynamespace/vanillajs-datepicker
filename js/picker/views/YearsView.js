@@ -131,7 +131,7 @@ export default class YearsView extends View {
         classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (current === this.focused) {
-        classList.add('focused');
+        classList.add('focused', 'border-dotted');
       }
 
       if (this.beforeShow) {

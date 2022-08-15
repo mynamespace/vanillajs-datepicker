@@ -210,7 +210,7 @@ export default class DaysView extends View {
         classList.remove('text-gray-900', 'text-gray-500', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600', 'dark:bg-gray-600', 'bg-gray-100', 'bg-gray-200');
       }
       if (current === this.focused) {
-        classList.add('focused');
+        classList.add('focused', 'border-dotted');
       }
 
       if (this.beforeShow) {

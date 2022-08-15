@@ -144,7 +144,8 @@ export default class MonthsView extends View {
         || isMaxYear && index > this.maxMonth
         || this.disabled.includes(index)
       ) {
-        classList.add('disabled');
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-300');
+        classList.remove('text-gray-900', 'hover:bg-gray-100');
       }
       if (range) {
         const [rangeStart, rangeEnd] = range;
@@ -163,7 +164,7 @@ export default class MonthsView extends View {
         classList.remove('text-gray-900', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-600');
       }
       if (index === this.focused) {
-        classList.add('focused');
+        classList.add('focused', 'border-dotted');
       }
 
       if (this.beforeShow) {
