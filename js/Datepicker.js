@@ -477,7 +477,7 @@ export default class Datepicker {
       return;
     }
     this.editMode = true;
-    this.inputField.classList.add('in-edit');
+    this.inputField.classList.add('in-edit', 'border-blue-700');
   }
 
   /**
@@ -494,7 +494,7 @@ export default class Datepicker {
     }
     const opts = Object.assign({update: false}, options);
     delete this.editMode;
-    this.inputField.classList.remove('in-edit');
+    this.inputField.classList.remove('in-edit', 'border-blue-700');
     if (opts.update) {
       this.update(opts);
     }
