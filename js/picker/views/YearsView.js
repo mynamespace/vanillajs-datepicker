@@ -104,12 +104,15 @@ export default class YearsView extends View {
       el.textContent = el.dataset.year = current;
 
       if (index === 0) {
-        classList.add('prev');
+        classList.add('prev', 'text-gray-500', 'dark:text-white');
+        classList.remove('text-gray-900');
       } else if (index === 11) {
-        classList.add('next');
+        classList.add('next', 'text-gray-500', 'dark:text-white');
+        classList.remove('text-gray-900');
       }
       if (current < this.minYear || current > this.maxYear || this.disabled.includes(current)) {
-        classList.add('disabled');
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-300');
+        classList.remove('text-gray-900', 'hover:bg-gray-100');
       }
       if (this.range) {
         const [rangeStart, rangeEnd] = this.range;
